@@ -1,0 +1,8 @@
+{
+  "name": "volgactf-main",
+  "version": "0.0.1",
+  "authors": "VolgaCTF Dev Team",
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
