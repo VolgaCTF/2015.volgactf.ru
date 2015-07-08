@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins";
+
+body {
+  overflow-x: hidden;
+  .body-font;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  outline: none;
+}
+
+.navbar-default {
+  background-color: @black;
+  border-color: transparent;
+  .navbar-brand {
+    color: @brand-primary;
+    /*    .script-font;
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          color: darken(@brand-primary, 10%);
+        }*/
+  }
+  .navbar-collapse {
+    border-color: fade(white, 2%);
+  }
+  .navbar-toggle {
+    background-color: @brand-primary;
+    border-color: @brand-primary;
+    .icon-bar {
+      background-color: white;
+    }
+    &:hover,
+    &:focus {
+      background-color: @brand-primary;
+    }
+  }
+  .nav {
+    li {
+      a {
+        .body-font;
+        color: white;
+        &:hover,
+        &:focus {
+          color: @brand-primary;
+          outline: none;
+        }
+      }
+    }
+  }
+  .navbar-nav > .active > a {
+    background-color: @black;
+    color: @brand-primary;
+    text-decoration: underline;
+  }
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: lighten(@black, 20%);
+  }
+}
