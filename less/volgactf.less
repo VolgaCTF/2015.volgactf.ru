@@ -18,33 +18,30 @@ a.active {
   background-color: @black;
   border-color: transparent;
   .navbar-brand {
-    color: @brand-primary;
-    /*    .script-font;
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
-          color: darken(@brand-primary, 10%);
-        }*/
+    img {
+      width: 100px;
+      height: 50px;
+      margin-top: -15px;
+    }
   }
   .navbar-collapse {
     border-color: fade(white, 2%);
   }
   .navbar-toggle {
-    background-color: @brand-primary;
-    border-color: @brand-primary;
+    background-color: @black;
+    border-color: @black;
     .icon-bar {
       background-color: white;
     }
     &:hover,
     &:focus {
-      background-color: @brand-primary;
+      background-color: lighten(@black, 20%);
     }
   }
   .nav {
     li {
       a {
-        .body-font;
+        .roboto-font;
         color: white;
         &:hover,
         &:focus {
@@ -63,5 +60,128 @@ a.active {
   .navbar-nav > .active > a:focus {
     color: white;
     background-color: lighten(@black, 20%);
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: transparent;
+    padding: 25px 0;
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+    border: none;
+    .navbar-brand {
+      display: none;
+    }
+    .navbar-nav > .active > a {
+      border-radius: 3px;
+    }
+  }
+
+  .navbar-default.navbar-shrink {
+    background-color: @black;
+    padding: 20px 0;
+    .navbar-brand {
+      display: block;
+      img {
+        width: 150px;
+        height: 150px;
+        margin-top: -65px;
+      }
+    }
+  }
+}
+
+header {
+  :before {
+    background: url('../img/image-bg.jpg') no-repeat scroll center center;
+    .background-cover;
+    content: "";
+    left: 0;
+    position: fixed;
+    right: 0;
+
+    background-size: cover;
+
+    z-index: -1; /* Keep the background behind the content */
+    height: 20%;
+    width: 20%; /* Using Glen Maddern's trick /via @mente */
+
+    -ms-transform: scale(5);
+    -webkit-transform: scale(5);
+    -moz-transform: scale(5);
+    -o-transform: scale(5);
+    -ms-transform-origin: top left;
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -o-transform-origin: top left;
+
+    transform: scale(5);
+    transform-origin: top left;
+
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+  }
+
+  text-align: center;
+
+  img.logo-large {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    height: 160px;
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+
+    img.logo-large {
+      margin-top: 100px;
+      height: 250px;
+      width: 400px;
+    }
+    img.logo-subtitle {
+      display: block;
+      height: 100px;
+      width: 600px;
+      margin-bottom: 350px;
+    }
+  }
+}
+
+section {
+  background: @brand-primary;
+  padding: 100px 0;
+  h2.section-heading {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  h3.section-subheading {
+    font-size: 16px;
+    .body-font;
+    text-transform: none;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 75px;
+  }
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 120px 0;
+  }
+}
+
+#news {
+  background: @black;
+  color: @brand-primary;
+  .spacer {
+    margin-top: 40px;
   }
 }

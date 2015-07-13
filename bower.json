@@ -4,5 +4,8 @@
   "authors": "VolgaCTF Dev Team",
   "dependencies": {
     "bootstrap": "~3.3.5"
+  },
+  "devDependencies": {
+    "jquery.easing": "~1.3.0"
   }
 }

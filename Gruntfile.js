@@ -3,6 +3,22 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        concat: {
+            main: {
+                src: [
+                    'bower_components/jquery.easing/js/jquery.easing.js',
+                    'js/plugins/*.js',
+                    'js/<%= pkg.name %>.js'
+                ],
+                dest: 'dist/js/<%= pkg.name %>.js'
+            }
+        },
+        uglify: {
+            main: {
+                src: 'dist/js/<%= pkg.name %>.js',
+                dest: 'dist/js/<%= pkg.name %>.min.js'
+            }
+        },
         copy: {
             main: {
                 src: ['*.html', 'img/**', 'less/**'],
@@ -56,7 +72,6 @@ module.exports = function (grunt) {
         banner: '/*!\n' +
         ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
         ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-        ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
         ' */\n',
 
         usebanner: {
@@ -97,6 +112,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy', 'less', 'usebanner']);
+    grunt.registerTask('default', ['concat', 'uglify', 'copy', 'less', 'usebanner']);
 
 };
