@@ -47,6 +47,28 @@ module.exports = function (grunt) {
                     ],
                     dest: 'dist/'
                 }]
+            },
+            production: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist/',
+                    src: [
+                        'css/*.min.css',
+                        'js/*.min.js',
+                        'img/*',
+                        'index.html'
+                    ],
+                    dest: '/var/www2'
+                }]
+            }
+        },
+        chown: {
+            options: {
+                uid: 33,
+                gid: 33
+            },
+            target: {
+                src: ['/var/www2/**']
             }
         },
         less: {
@@ -100,11 +122,15 @@ module.exports = function (grunt) {
                     spawn: false
                 }
             }
+        },
+        prodCopy: {
+            copy: {}
         }
     });
 
     // Load the plugins.
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-chown');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
@@ -112,6 +138,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify', 'copy', 'less', 'usebanner']);
+    grunt.registerTask('default', ['concat', 'uglify', 'copy:main', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner']);
+    grunt.registerTask('production', ['concat', 'uglify', 'copy:main', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner', 'copy:production', 'chown']);
 
 };
