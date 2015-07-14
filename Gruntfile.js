@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                         'img/*',
                         'index.html'
                     ],
-                    dest: '/var/www2'
+                    dest: grunt.option("prod")
                 }]
             }
         },
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                 gid: 33
             },
             target: {
-                src: ['/var/www2/**']
+                src: [grunt.option("prod") + '/**']
             }
         },
         less: {
