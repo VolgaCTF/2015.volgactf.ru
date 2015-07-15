@@ -193,21 +193,39 @@ section {
 }
 
 #teams {
-  padding: 0;
-  div.col-lg-12 {
-    color: @black;
-    padding-top: 20px;
-    padding-bottom: 600px;
+  padding-top: 0;
+  div.covered {
+    width: 100%;
     background: url('../img/image-bg2.jpg') no-repeat scroll center center;
     .background-cover;
   }
-  div.pull {
-    margin-top: -100px;
+  div.col-lg-12 {
+    color: @black;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-bottom: 250px;
   }
   img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border: 1px solid white;
+  }
+}
 
+@media (min-width: 768px) {
+  #teams {
+    div.col-lg-12 {
+      color: @black;
+      padding-top: 120px;
+      padding-bottom: 400px;
+    }
+    div.pull {
+      margin-top: -100px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      border: 1px solid white;
+    }
   }
 }
