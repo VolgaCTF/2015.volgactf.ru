@@ -95,3 +95,4 @@ dist/
 .tmp/
 
 node_modules/
+img/compressed

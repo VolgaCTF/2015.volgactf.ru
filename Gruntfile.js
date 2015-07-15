@@ -21,8 +21,16 @@ module.exports = function (grunt) {
         },
         copy: {
             main: {
-                src: ['*.html', 'img/**', 'less/**'],
+                src: ['*.html', 'img/*.*', 'less/**'],
                 dest: 'dist/'
+            },
+            images: {
+                expand: true,
+                cwd: 'img/compressed',
+                src: [
+                    "*.jpg"
+                ],
+                dest: 'dist/img/'
             },
             jquery: {
                 files: [{
@@ -123,6 +131,25 @@ module.exports = function (grunt) {
                 }
             }
         },
+        imagemin: {
+            jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        // Set to true to enable the following options…
+                        expand: true,
+                        // cwd is 'current working directory'
+                        cwd: 'img/',
+                        src: ['**/*.jpg'],
+                        // Could also match cwd. i.e. project-directory/img/
+                        dest: 'img/compressed/',
+                        ext: '.jpg'
+                    }
+                ]
+            }
+        },
         prodCopy: {
             copy: {}
         }
@@ -136,9 +163,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify', 'copy:main', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner']);
+    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'copy:main', 'copy:images', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner']);
     grunt.registerTask('production', ['concat', 'uglify', 'copy:main', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner', 'copy:production', 'chown']);
 
 };
