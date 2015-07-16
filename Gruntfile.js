@@ -21,14 +21,14 @@ module.exports = function (grunt) {
         },
         copy: {
             main: {
-                src: ['*.html', 'img/*.*', 'less/**'],
+                src: ['*.html', 'less/**'],
                 dest: 'dist/'
             },
             images: {
                 expand: true,
                 cwd: 'img/compressed',
                 src: [
-                    "*.jpg"
+                    "*.*"
                 ],
                 dest: 'dist/img/'
             },
@@ -142,10 +142,9 @@ module.exports = function (grunt) {
                         expand: true,
                         // cwd is 'current working directory'
                         cwd: 'img/',
-                        src: ['**/*.jpg'],
+                        src: ['*.*'],
                         // Could also match cwd. i.e. project-directory/img/
-                        dest: 'img/compressed/',
-                        ext: '.jpg'
+                        dest: 'img/compressed/'
                     }
                 ]
             }
