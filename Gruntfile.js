@@ -149,8 +149,14 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        prodCopy: {
-            copy: {}
+        template: {
+            main: {
+                options: {
+                    data: {
+                        'year': new Date().getYear()
+                    }
+                }
+            }
         }
     });
 
@@ -163,6 +169,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-template');
 
     // Default task(s).
     grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'copy:main', 'copy:images', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner']);
