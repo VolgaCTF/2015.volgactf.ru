@@ -246,6 +246,27 @@ section {
   background: @brand-primary;
 }
 
+#partners {
+  div.partner {
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    -webkit-box-shadow: 0 0 0 1px @black;
+    -moz-box-shadow: 0 0 0 1px @black;
+    box-shadow: 0 0 0 1px @black;
+
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/s….3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+    opacity: 0.7;
+  }
+
+  div.partner:hover {
+    filter: none;
+    -webkit-filter: none;
+  }
+}
+
 footer {
   background-color: @black;
   border-color: @black;
