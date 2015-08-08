@@ -66,6 +66,7 @@ module.exports = function (grunt) {
                     cwd: 'dist/',
                     src: [
                         'css/*.min.css',
+                        'css/*.otf',
                         'js/*.min.js',
                         'img/*',
                         'index.html'
