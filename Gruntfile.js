@@ -33,7 +33,8 @@ module.exports = function (grunt) {
                 dest: 'dist/img/'
             },
             fonts: {
-                src: ['font/**'],
+                cwd: 'font',
+                src: ['*.*'],
                 dest: 'dist/css/'
             },
             jquery: {
