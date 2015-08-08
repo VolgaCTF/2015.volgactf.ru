@@ -32,6 +32,10 @@ module.exports = function (grunt) {
                 ],
                 dest: 'dist/img/'
             },
+            fonts: {
+                src: ['font/**'],
+                dest: 'dist/css/'
+            },
             jquery: {
                 files: [{
                     expand: true,
@@ -172,7 +176,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-template');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'copy:main', 'copy:images', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner']);
-    grunt.registerTask('production', ['concat', 'uglify', 'copy:main', 'copy:bootstrap', 'copy:jquery', 'less', 'usebanner', 'copy:production', 'chown']);
+    grunt.registerTask('win', ['concat', 'uglify', 'copy:main', 'copy:images', 'copy:bootstrap', 'copy:jquery', 'copy:fonts', 'less', 'usebanner']);
+    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'copy:main', 'copy:images', 'copy:bootstrap', 'copy:fonts', 'copy:jquery', 'less', 'usebanner']);
+    grunt.registerTask('production', ['concat', 'uglify', 'copy:main', 'copy:bootstrap', 'copy:jquery', 'less', 'copy:fonts', 'usebanner', 'copy:production', 'chown']);
 
 };

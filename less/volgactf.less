@@ -1,6 +1,12 @@
 @import "variables";
 @import "mixins";
 
+@font-face {
+  font-family: "Hagin Caps";
+  src: local('Hagin Caps'), local('HaginCaps'), url('hagin.otf') format('opentype');
+}
+
+
 body {
   overflow-x: hidden;
   .body-font;
@@ -12,6 +18,10 @@ a:focus,
 a:active,
 a.active {
   outline: none;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .spacer {
@@ -63,6 +73,7 @@ div.modal-body {
     li {
       a {
         .roboto-font;
+        font-size: 13pt;
         color: white;
         &:hover,
         &:focus {
