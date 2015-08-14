@@ -1,7 +1,13 @@
 /**
  * Created by alexey on 10.07.15.
  */
-$(function () {
+$(document).ready(function () {
+    $('.navbar-collapse ul li a').click(function () {
+        $('.navbar-toggle:visible').click();
+    });
+    $('body').scrollspy({
+        target: '.navbar-fixed-top'
+    });
     $('a.page-scroll').bind('click', function (event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
@@ -9,13 +15,4 @@ $(function () {
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
-});
-
-$('body').scrollspy({
-    target: '.navbar-fixed-top'
-});
-
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function () {
-    $('.navbar-toggle:visible').click();
 });
