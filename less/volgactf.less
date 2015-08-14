@@ -3,7 +3,12 @@
 
 @font-face {
   font-family: "Hagin Caps";
-  src: local('Hagin Caps'), local('HaginCaps'), url('hagin.otf') format('opentype');
+  src: url("hagin.eot");
+  src: url("hagin.eot?#iefix")format("embedded-opentype"),
+  url("hagin.woff") format("woff"),
+  url("hagin.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
 }
 
 
@@ -90,8 +95,7 @@ div.modal-body {
   }
   .navbar-nav > .active > a:hover,
   .navbar-nav > .active > a:focus {
-    color: white;
-    background-color: lighten(@black, 20%);
+    background-color: transparent;
   }
 }
 
