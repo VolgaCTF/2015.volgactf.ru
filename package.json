@@ -1,7 +1,7 @@
 {
-  "name": "volgactf",
-  "title": "volgactf.ru",
-  "version": "0.0.1",
+  "name": "2015.volgactf.ru",
+  "title": "2015.volgactf.ru",
+  "version": "1.0.0",
   "author": "VolgaCTF Dev Team",
   "scripts": {
     "bower": "bower",
