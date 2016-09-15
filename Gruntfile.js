@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         },
         copy: {
             main: {
-                src: ['*.html', 'less/**'],
+                src: ['*.html', 'less/**','*.pdf'],
                 dest: 'dist/'
             },
             images: {
